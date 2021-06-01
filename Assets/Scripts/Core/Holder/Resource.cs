@@ -7,9 +7,5 @@ namespace Core.Holder {
 
 		public ResourceType Type => resourceType;
 		public int Count => count;
-
-		public void DestroyResource() {
-			Destroy(gameObject);
-		}
 	}
 }
