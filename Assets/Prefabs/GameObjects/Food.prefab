@@ -92,6 +92,7 @@ GameObject:
   - component: {fileID: 4889340311570705223}
   - component: {fileID: 8157527546210512680}
   - component: {fileID: 257833808155276264}
+  - component: {fileID: 7207896756989143432}
   m_Layer: 0
   m_Name: Food
   m_TagString: Untagged
@@ -122,7 +123,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3657851827629096998}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 2, z: 1}
@@ -141,3 +142,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   resourceType: 2
   count: 1
+--- !u!114 &7207896756989143432
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3657851827629096998}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 438a5d63f88440e7ad92d1161718091b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  duration: 0.1
+  finalRotation: {x: 60, y: 0, z: 0}
