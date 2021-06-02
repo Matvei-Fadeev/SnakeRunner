@@ -11,6 +11,9 @@ GameObject:
   - component: {fileID: 9151052777713220763}
   - component: {fileID: 3530002356001811404}
   - component: {fileID: 1380256851703202028}
+  - component: {fileID: 3638613644541239866}
+  - component: {fileID: 7090630285170131828}
+  - component: {fileID: 2798317776910516273}
   m_Layer: 0
   m_Name: Crystal
   m_TagString: Untagged
@@ -60,6 +63,47 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   resourceType: 1
   count: 10
+--- !u!114 &3638613644541239866
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2475462832610066203}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2293108641ae4c82a2d4dac2d77a2b1d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerTag: Player
+--- !u!114 &7090630285170131828
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2475462832610066203}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cfd89737f5c146889fd3864cda1a4380, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  particleSystemPrefab: {fileID: 1026387209040981399, guid: eef138751ba9c674d8bc990f5f235824, type: 3}
+  fireworksDuration: 0.2
+--- !u!114 &2798317776910516273
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2475462832610066203}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 438a5d63f88440e7ad92d1161718091b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  duration: 0.2
+  finalRotation: {x: 90, y: 90, z: 90}
 --- !u!1 &2891256774407343096
 GameObject:
   m_ObjectHideFlags: 0
