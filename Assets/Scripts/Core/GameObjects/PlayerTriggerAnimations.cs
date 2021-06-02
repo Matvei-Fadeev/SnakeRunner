@@ -5,10 +5,10 @@ namespace Core.GameObjects {
 	public class PlayerTriggerAnimations : MonoBehaviour {
 		[SerializeField] private string playerTag = "Player";
 
-		private IAnimations[] _animations;
+		private IAnimation[] _animations;
 
 		private void Awake() {
-			_animations = GetComponents<IAnimations>();
+			_animations = GetComponents<IAnimation>();
 		}
 
 		private void OnTriggerEnter(Collider player) {
