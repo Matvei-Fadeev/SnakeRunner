@@ -6,7 +6,7 @@ using UnityEngine;
 namespace Core.Player {
 	public class Mouth : MonoBehaviour {
 		private SnakeBody _snakeBody;
-		
+
 		private void Awake() {
 			if (!TryGetComponent(out _snakeBody)) {
 				_snakeBody = GetComponentInParent<SnakeBody>();
