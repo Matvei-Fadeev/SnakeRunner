@@ -2,19 +2,16 @@
 using UnityEngine;
 
 namespace Core.Animations {
-	public class Swallowing : MonoBehaviour {
-		[SerializeField] private string playerTag = "Player";
+	public class Swallowing : MonoBehaviour, IAnimation {
 		[SerializeField] private float duration = 0.2f;
 		[SerializeField] private Vector3 finalRotation;
-		
-		private void OnTriggerEnter(Collider player) {
-			if (player.CompareTag(playerTag)) {
-				StartSwallowing(player.gameObject);
-			}
+
+		public void Show(Vector3 position) {
+			StartSwallowing(position);
 		}
 
-		private void StartSwallowing(GameObject player) {
-			transform.DOMoveX(transform.position.x, duration);
+		private void StartSwallowing(Vector3 player) {
+			transform.DOMoveX(player.x, duration);
 			transform.DOScale(Vector3.zero, duration);
 			transform.DORotate(finalRotation, duration);
 		}
