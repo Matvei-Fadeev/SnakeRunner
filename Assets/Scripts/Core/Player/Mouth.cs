@@ -5,14 +5,22 @@ using UnityEngine;
 
 namespace Core.Player {
 	public class Mouth : MonoBehaviour {
-		private void OnTriggerEnter(Collider enemy) {
-			if (enemy.TryGetComponent(out Resource resource)) {
-				AddResourceCount(resource);
-				resource.DestroyResource();
+		private SnakeBody _snakeBody;
+
+		private void Awake() {
+			if (!TryGetComponent(out _snakeBody)) {
+				_snakeBody = GetComponentInParent<SnakeBody>();
 			}
 		}
 
-		private static void AddResourceCount(Resource resource) {
+		private void OnTriggerEnter(Collider enemy) {
+			if (enemy.TryGetComponent(out Resource resource)) {
+				AddResourceCountToHandler(resource);
+				AddResourceCountToSnakeBody(resource);
+			}
+		}
+
+		private static void AddResourceCountToHandler(Resource resource) {
 			var count = resource.Count;
 			switch (resource.Type) {
 				case ResourceType.None:
@@ -26,6 +34,10 @@ namespace Core.Player {
 				default:
 					throw new ArgumentOutOfRangeException();
 			}
+		}
+
+		private void AddResourceCountToSnakeBody(Resource resource) {
+			_snakeBody.AddBody(resource.Count);
 		}
 	}
 }

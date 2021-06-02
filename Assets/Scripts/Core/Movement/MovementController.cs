@@ -18,7 +18,8 @@ namespace Core.Movement {
 
 		private void Move() {
 			var direction = transform.forward * forwardSpeed;
-			direction.x = InputHandler.Instance.GetHorizontal() * horizontalSpeed;
+			var rotationInput = InputHandler.Instance.GetHorizontal() * horizontalSpeed;
+			direction.x = rotationInput;
 			MoveToDirection(direction);
 		}
 
