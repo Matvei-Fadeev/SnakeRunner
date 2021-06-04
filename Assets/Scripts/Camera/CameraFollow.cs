@@ -3,6 +3,10 @@ using UnityEngine;
 
 namespace Camera {
 	public class CameraFollow : MonoBehaviour {
+		[Tooltip("If we need sometimes to turn off camera movement")]
+		[HideInInspector]
+		public bool hasFreezeMovement;
+		
 		[Header("Object to follow")]
 		[SerializeField] private string tagOfTarget = "Player";
 
@@ -25,13 +29,17 @@ namespace Camera {
 		}
 
 		private void Update() {
-			SetCameraAbove();
+			if (!hasFreezeMovement) {
+				SetCameraAbove();
+			}
 		}
 
 		private void SetCameraAbove() {
-			var newPosition = _target.position + _offsetFromTarget;
-			FreezeCameraMovementAxis(ref newPosition);
-			transform.position = newPosition;
+			if (_target) {
+				var newPosition = _target.position + _offsetFromTarget;
+				FreezeCameraMovementAxis(ref newPosition);
+				transform.position = newPosition;
+			}
 		}
 
 		private void FreezeCameraMovementAxis(ref Vector3 position) {
