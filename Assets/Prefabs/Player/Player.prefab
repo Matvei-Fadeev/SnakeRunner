@@ -202,10 +202,10 @@ GameObject:
   - component: {fileID: 9017565211377245973}
   - component: {fileID: 7313228032863062528}
   - component: {fileID: 8746047262556060168}
-  - component: {fileID: 6510475022249581762}
   - component: {fileID: 6061123923143275395}
   - component: {fileID: 7796296060018621832}
   - component: {fileID: 1777597913561447237}
+  - component: {fileID: 2818362253247945846}
   - component: {fileID: 3991372922237626968}
   m_Layer: 0
   m_Name: Player
@@ -259,19 +259,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 116
   m_CollisionDetection: 0
---- !u!114 &6510475022249581762
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9017565211377245972}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2e893a0f3e4d4d9e815c682b52020bc8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enableDyingAnimation: 1
 --- !u!114 &6061123923143275395
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -315,9 +302,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bfa610c986974f1caaf86aa62a35a120, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  colorType: 1
+  colorType: 4
   durationToChangeColor: 1
   changeChildrenMaterial: 1
+--- !u!114 &2818362253247945846
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9017565211377245972}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e893a0f3e4d4d9e815c682b52020bc8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enableDyingAnimation: 1
 --- !u!114 &3991372922237626968
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -331,5 +331,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   jumpHeight: 10
-  jumpDuration: 4
-  jumpOffset: {x: 10, y: -10, z: 0}
+  jumpDuration: 3
+  jumpOffset: {x: 14, y: -10, z: 0}
