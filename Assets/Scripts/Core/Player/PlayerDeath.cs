@@ -6,7 +6,7 @@ using UnityEngine;
 
 namespace Core.Player {
 	[ExecuteInEditMode]
-	public class Player : MonoBehaviour {
+	public class PlayerDeath : MonoBehaviour {
 		public Action<GameCommands> PlayerState;
 		
 		[Header("Animations")]

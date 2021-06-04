@@ -1,12 +1,13 @@
 ﻿using System;
 using Camera;
+using UnityEngine;
 using UnityEngine.SceneManagement;
 using Camera = UnityEngine.Camera;
 
 namespace Core.Managers.GameLogic {
 	public class CommandsHandler {
-		public void HandleState(GameCommands gameCommands) {
-			switch (gameCommands) {
+		public void HandleState(GameCommands gameCommand) {
+			switch (gameCommand) {
 				case GameCommands.GamePlay:
 					CameraFreezeMovement(false);
 					break;
@@ -18,7 +19,8 @@ namespace Core.Managers.GameLogic {
 					SceneReload();
 					break;
 				default:
-					throw new ArgumentOutOfRangeException(nameof(gameCommands), gameCommands, null);
+					Debug.Log(gameCommand);
+					throw new ArgumentOutOfRangeException(nameof(gameCommand));
 			}
 		}
 

@@ -29,6 +29,9 @@ namespace UI {
 		}
 
 		private void SendCommand() {
+			if (gameCommands == GameCommands.None) {
+				throw new UnityException("Set the command to the button");
+			}
 			SentCommand?.Invoke(gameCommands);
 		}
 	}

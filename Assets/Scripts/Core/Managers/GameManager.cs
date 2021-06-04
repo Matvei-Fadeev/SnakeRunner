@@ -7,7 +7,7 @@ namespace Core.Managers {
 	public class GameManager : MonoBehaviour {
 		[Header("Dependent objects")]
 		[SerializeField] private UIManager uiManager;
-		[SerializeField] private Player.Player player;
+		[SerializeField] private Player.PlayerDeath playerDeath;
 		
 		private CommandsHandler _commandsHandler;
 
@@ -16,7 +16,7 @@ namespace Core.Managers {
 		}
 
 		private void OnEnable() {
-			player.PlayerState += HandleState;
+			playerDeath.PlayerState += HandleState;
 			ButtonCommandSender.SentCommand += HandleState;
 		}
 
@@ -25,7 +25,7 @@ namespace Core.Managers {
 		}
 
 		private void OnDisable() {
-			player.PlayerState -= HandleState;
+			playerDeath.PlayerState -= HandleState;
 			ButtonCommandSender.SentCommand -= HandleState;
 
 		}
