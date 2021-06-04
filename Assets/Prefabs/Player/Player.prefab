@@ -206,6 +206,7 @@ GameObject:
   - component: {fileID: 6061123923143275395}
   - component: {fileID: 7796296060018621832}
   - component: {fileID: 1777597913561447237}
+  - component: {fileID: 3991372922237626968}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -270,9 +271,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e893a0f3e4d4d9e815c682b52020bc8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dyingCheckers:
-  - {fileID: 3106518593651994042}
-  - {fileID: 435452639433052430}
+  enableDyingAnimation: 1
 --- !u!114 &6061123923143275395
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -319,3 +318,18 @@ MonoBehaviour:
   colorType: 1
   durationToChangeColor: 1
   changeChildrenMaterial: 1
+--- !u!114 &3991372922237626968
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9017565211377245972}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 10520263ea7d40018b0be6e613b66f5f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  jumpHeight: 10
+  jumpDuration: 4
+  jumpOffset: {x: 10, y: -10, z: 0}
