@@ -18,8 +18,8 @@ namespace Animations {
 			SetNotActive();
 		}
 
-		public void Show(Vector3 position) {
-			ShowPopupScore(position);
+		public void Show(Vector3 currentPosition) {
+			ShowPopupScore(currentPosition);
 		}
 
 		private void ShowPopupScore(Vector3 position) {

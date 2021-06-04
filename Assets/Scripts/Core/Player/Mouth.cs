@@ -1,6 +1,6 @@
 using System;
-using Core.Holder;
-using Data;
+using Core.DataComponents;
+using Data.Resource;
 using UnityEngine;
 
 namespace Core.Player {
@@ -14,17 +14,17 @@ namespace Core.Player {
 		}
 
 		private void OnTriggerEnter(Collider enemy) {
-			if (enemy.TryGetComponent(out Resource resource)) {
+			if (enemy.TryGetComponent(out ResourceComponent resource)) {
 				AddResourceCountToHandler(resource);
 				AddResourceCountToSnakeBody(resource);
 			}
 		}
 
-		private static void AddResourceCountToHandler(Resource resource) {
-			var count = resource.Count;
-			switch (resource.Type) {
+		private static void AddResourceCountToHandler(ResourceComponent resourceComponent) {
+			var count = resourceComponent.Count;
+			switch (resourceComponent.Type) {
 				case ResourceType.None:
-					throw new UnityException("Set the ResourceType to the " + resource.gameObject.name);
+					throw new UnityException("Set the ResourceType to the " + resourceComponent.gameObject.name);
 				case ResourceType.Crystal:
 					ResourceHolder.Crystals += count;
 					break;
@@ -36,8 +36,8 @@ namespace Core.Player {
 			}
 		}
 
-		private void AddResourceCountToSnakeBody(Resource resource) {
-			_snakeBody.AddBody(resource.Count);
+		private void AddResourceCountToSnakeBody(ResourceComponent resourceComponent) {
+			_snakeBody.AddBody(resourceComponent.Count);
 		}
 	}
 }

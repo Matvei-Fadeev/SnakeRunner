@@ -2,6 +2,6 @@
 
 namespace Animations {
 	public interface IAnimation {
-		void Show(Vector3 position);
+		void Show(Vector3 currentPosition);
 	}
 }
