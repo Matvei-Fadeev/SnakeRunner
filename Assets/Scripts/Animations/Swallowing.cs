@@ -1,7 +1,7 @@
 ﻿using DG.Tweening;
 using UnityEngine;
 
-namespace Core.Animations {
+namespace Animations {
 	public class Swallowing : MonoBehaviour, IAnimation {
 		[SerializeField] private float duration = 0.2f;
 		[SerializeField] private Vector3 finalRotation;

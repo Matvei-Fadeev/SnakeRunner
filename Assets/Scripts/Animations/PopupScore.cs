@@ -1,9 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using DG.Tweening;
+﻿using DG.Tweening;
 using UnityEngine;
 
-namespace Core.Animations {
+namespace Animations {
 	public class PopupScore : MonoBehaviour, IAnimation {
 		[Header("Prefab to spawn")]
 		[SerializeField] private GameObject popupScorePrefab;

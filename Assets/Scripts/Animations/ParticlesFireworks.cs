@@ -1,7 +1,7 @@
 ﻿using DG.Tweening;
 using UnityEngine;
 
-namespace Core.Animations {
+namespace Animations {
 	class ParticlesFireworks : MonoBehaviour ,IAnimation {
 		[Header("Spawned GameObject")]
 		[SerializeField] private GameObject particleSystemPrefab;
