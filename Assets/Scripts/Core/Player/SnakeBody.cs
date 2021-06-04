@@ -11,19 +11,23 @@ namespace Core.Player {
 		[Header("Configuration")]
 		[SerializeField] private float partDistance = 0f;
 
+		[SerializeField] private int defaultAmountOfParts = 0;
+
 		[Header("Snake body parts")]
 		[SerializeField] private List<GameObject> parts;
 
-		private GameObject tailGameObject;
+		private Vector3 _invisibleSpawnPosition = new Vector3(-999, -999);
+		private GameObject _tailGameObject;
 
 		private void Awake() {
 			parts = new List<GameObject>();
 			if (!tailPrefab) {
 				throw new UnityException("Set the tailPrefab to the SnakeBody scripts");
 			}
-			else {
-				tailGameObject = Instantiate(tailPrefab);
-			}
+
+			_tailGameObject = Instantiate(tailPrefab, _invisibleSpawnPosition, default);
+
+			AddBody(defaultAmountOfParts);
 		}
 
 		private void Update() {
@@ -32,8 +36,9 @@ namespace Core.Player {
 
 		/// <param name="count">The number of body parts to appear</param>
 		public void AddBody(int count = 1) {
+			var objectToClone = parts.Count > 0 ? parts[0] : bodyPart;
 			for (int i = 0; i < count; i++) {
-				var newPart = Instantiate(bodyPart);
+				var newPart = Instantiate(objectToClone, _invisibleSpawnPosition, default);
 				parts.Add(newPart);
 			}
 		}
@@ -81,7 +86,7 @@ namespace Core.Player {
 
 			if (hasMoveBody) {
 				// Move tail
-				tailGameObject.transform.SetPositionAndRotation(previousPosition, previousRotation);
+				_tailGameObject.transform.SetPositionAndRotation(previousPosition, previousRotation);
 			}
 		}
 

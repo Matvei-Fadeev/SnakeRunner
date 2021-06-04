@@ -12,7 +12,7 @@ namespace Input {
 
 		private void InitInstance() {
 			if (_instance != null && _instance != this) {
-				throw new UnityException("Have 2 singleton on the scene");
+				throw new UnityException($"Have 2 singleton on the scene {this.name} and {_instance.name}");
 			}
 
 			_instance = this;

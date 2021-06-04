@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Data {
+namespace Data.Resource {
 	/// <summary>
 	/// Containe the score and crystal values
 	/// </summary>

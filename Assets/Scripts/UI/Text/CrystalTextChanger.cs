@@ -1,4 +1,5 @@
 ﻿using Data;
+using Data.Resource;
 
 namespace UI.Text {
 	/// <summary>

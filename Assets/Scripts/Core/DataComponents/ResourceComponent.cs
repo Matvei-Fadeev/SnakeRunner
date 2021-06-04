@@ -1,7 +1,8 @@
-﻿using UnityEngine;
+﻿using Data.Resource;
+using UnityEngine;
 
-namespace Core.Holder {
-	public class Resource : MonoBehaviour {
+namespace Core.DataComponents {
+	public class ResourceComponent : MonoBehaviour {
 		[SerializeField] private ResourceType resourceType;
 		[SerializeField] private int count;
 
