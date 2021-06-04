@@ -1,7 +1,8 @@
-namespace Core.Holder {
+namespace Data.Resource {
 	public enum ResourceType {
 		None,
 		Crystal,
-		Score
+		Score,
+		Barrier
 	}
 }
