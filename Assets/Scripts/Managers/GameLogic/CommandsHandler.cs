@@ -2,9 +2,8 @@
 using Camera;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using Camera = UnityEngine.Camera;
 
-namespace Core.Managers.GameLogic {
+namespace Managers.GameLogic {
 	public class CommandsHandler {
 		public void HandleState(GameCommands gameCommand) {
 			switch (gameCommand) {

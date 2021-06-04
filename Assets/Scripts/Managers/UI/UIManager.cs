@@ -1,8 +1,7 @@
-﻿using System;
-using DG.Tweening;
+﻿using DG.Tweening;
 using UnityEngine;
 
-namespace Core.Managers.UI {
+namespace Managers.UI {
 	public class UIManager : MonoBehaviour {
 		[Header("Depended objects")]
 		[SerializeField] private GameScreen[] screens;

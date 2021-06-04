@@ -1,5 +1,6 @@
 ﻿using System;
 using Core.Managers;
+using Managers;
 using UnityEngine;
 using UnityEngine.UI;
 

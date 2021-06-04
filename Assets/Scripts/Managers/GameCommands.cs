@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Core.Managers {
+namespace Managers {
 	[Serializable]
 	public enum GameCommands {
 		None,
