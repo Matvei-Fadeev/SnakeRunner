@@ -6,8 +6,8 @@ namespace Animations {
 		[SerializeField] private float duration = 0.2f;
 		[SerializeField] private Vector3 finalRotation;
 
-		public void Show(Vector3 position) {
-			StartSwallowing(position);
+		public void Show(Vector3 currentPosition) {
+			StartSwallowing(currentPosition);
 		}
 
 		private void StartSwallowing(Vector3 player) {

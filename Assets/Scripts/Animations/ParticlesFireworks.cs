@@ -16,11 +16,11 @@ namespace Animations {
 			SetNotActive();
 		}
 
-		public void Show(Vector3 position) {
+		public void Show(Vector3 currentPosition) {
 			_particleSystemTransform.SetActive(true);
 			Sequence mySequence = DOTween.Sequence();
 			mySequence
-				.Append(_particleSystemTransform.transform.DOMove(position, 0f))
+				.Append(_particleSystemTransform.transform.DOMove(currentPosition, 0f))
 				.AppendInterval(fireworksDuration)
 				.OnComplete(SetNotActive);
 
