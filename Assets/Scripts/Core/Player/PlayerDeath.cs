@@ -1,6 +1,5 @@
 ﻿using System;
 using Animations;
-using Core.Managers;
 using Core.Player.DeathCheckers;
 using Managers;
 using UnityEngine;

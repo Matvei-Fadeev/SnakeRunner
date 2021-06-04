@@ -7,8 +7,10 @@ namespace Managers {
 	public class GameManager : MonoBehaviour {
 		[Header("Dependent objects")]
 		[SerializeField] private UIManager uiManager;
-
 		[SerializeField] private Core.Player.PlayerDeath playerDeath;
+
+		[Header("Configuration")]
+		[SerializeField] private GameCommands startedCommand;
 
 		private CommandsHandler _commandsHandler;
 
@@ -22,7 +24,7 @@ namespace Managers {
 		}
 
 		private void Start() {
-			HandleState(GameCommands.GamePlay);
+			HandleState(startedCommand);
 		}
 
 		private void OnDisable() {
