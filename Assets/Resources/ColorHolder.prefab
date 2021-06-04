@@ -1,0 +1,60 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &8764628452050307028
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8764628452050307030}
+  - component: {fileID: 8764628452050307029}
+  m_Layer: 0
+  m_Name: ColorHolder
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8764628452050307030
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8764628452050307028}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8764628452050307029
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8764628452050307028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aae5ad0a7ed24f1ea2edc4e8f6cc237b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameColors:
+  - colorType: 1
+    material: {fileID: 2100000, guid: f6f334167bf4d814d8256b9b57b39da2, type: 2}
+  - colorType: 2
+    material: {fileID: 2100000, guid: 4f81d3d111e8606459a216a3752ead0f, type: 2}
+  - colorType: 3
+    material: {fileID: 2100000, guid: 2603bba6c84a89441a36e6efb56ae3b7, type: 2}
+  - colorType: 4
+    material: {fileID: 2100000, guid: f6f334167bf4d814d8256b9b57b39da2, type: 2}
+  - colorType: 5
+    material: {fileID: 2100000, guid: 3cc87ddd598309e498a28e338bcba3d1, type: 2}
+  - colorType: 6
+    material: {fileID: 2100000, guid: db79580bb419bcc45b5c3c3f57fff5e8, type: 2}
+  - colorType: 7
+    material: {fileID: 2100000, guid: 8f48d9492d483d14a8ba2e87c574f8e7, type: 2}
