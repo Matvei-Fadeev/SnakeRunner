@@ -11,10 +11,14 @@ namespace Animations {
 		[SerializeField] private Vector3 popupRotation = new Vector3(45, 0, 0);
 		[SerializeField] private float scaleDuration = 0.5f;
 
+		private Transform _parent;
 		private GameObject _popup;
 
 		private void Awake() {
-			_popup = Instantiate(popupScorePrefab);
+			if (!_popup) {
+				_popup = Instantiate(popupScorePrefab, transform, false);
+				_parent = _popup.transform.parent;
+			}
 			SetNotActive();
 		}
 
@@ -23,7 +27,7 @@ namespace Animations {
 		}
 
 		private void ShowPopupScore(Vector3 position) {
-			_popup.SetActive(true);
+			SetActive();
 			Transform popup = _popup.transform;
 			Sequence _mySequence = DOTween.Sequence();
 			_mySequence
@@ -36,7 +40,13 @@ namespace Animations {
 			_mySequence.Play();
 		}
 
+		private void SetActive() {
+			_popup.transform.SetParent(null);
+			_popup.SetActive(true);
+		}
+
 		private void SetNotActive() {
+			_popup.transform.SetParent(_parent);
 			_popup.SetActive(false);
 		}
 	}
