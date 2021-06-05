@@ -1,5 +1,6 @@
 ﻿using System;
 using Camera;
+using Data.Resource;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -8,17 +9,15 @@ namespace Managers.GameLogic {
 		public void HandleState(GameCommands gameCommand) {
 			switch (gameCommand) {
 				case GameCommands.GamePlay:
-					CameraFreezeMovement(false);
 					break;
 				case GameCommands.GameWin:
 				case GameCommands.GameOver:
 					CameraFreezeMovement(true);
 					break;
 				case GameCommands.Restart:
-					SceneReload();
+					Restart();
 					break;
 				default:
-					Debug.Log(gameCommand);
 					throw new ArgumentOutOfRangeException(nameof(gameCommand));
 			}
 		}
@@ -30,7 +29,10 @@ namespace Managers.GameLogic {
 			}
 		}
 
-		private static void SceneReload() {
+		private static void Restart() {
+			ResourceHolder.Reset();
+			
+			// Reload current scene
 			SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex);
 		}
 	}

@@ -6,17 +6,20 @@ namespace Camera {
 		[Tooltip("If we need sometimes to turn off camera movement")]
 		[HideInInspector]
 		public bool hasFreezeMovement;
-		
+
 		[Header("Object to follow")]
 		[SerializeField] private string tagOfTarget = "Player";
 
 		[Header("Configuration")]
+		[SerializeField] private Vector3 _offsetFromTarget;
+
 		[Tooltip("The axis which will be freezed")]
 		[SerializeField] private Axis freezeAxis;
 
 		private Transform _target;
 		private Vector3 _defaultPosition;
-		private Vector3 _offsetFromTarget;
+
+		public Transform Target => _target;
 
 		private void Awake() {
 			if (!_target) {
@@ -25,7 +28,6 @@ namespace Camera {
 
 			// Set to offset the start default camera position
 			_defaultPosition = gameObject.transform.position;
-			_offsetFromTarget = gameObject.transform.position;
 		}
 
 		private void Update() {
@@ -36,10 +38,14 @@ namespace Camera {
 
 		private void SetCameraAbove() {
 			if (_target) {
-				var newPosition = _target.position + _offsetFromTarget;
+				var newPosition = GetCameraPosition();
 				FreezeCameraMovementAxis(ref newPosition);
 				transform.position = newPosition;
 			}
+		}
+
+		private Vector3 GetCameraPosition() {
+			return _target.position + _offsetFromTarget;
 		}
 
 		private void FreezeCameraMovementAxis(ref Vector3 position) {

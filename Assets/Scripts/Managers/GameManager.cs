@@ -33,7 +33,6 @@ namespace Managers {
 		}
 
 		private void HandleState(GameCommands gameCommands) {
-			Debug.Log($"HandleState {gameCommands}");
 			_commandsHandler.HandleState(gameCommands);
 			uiManager.SwitchScreen(gameCommands);
 		}
