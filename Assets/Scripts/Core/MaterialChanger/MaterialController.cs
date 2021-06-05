@@ -14,7 +14,7 @@ namespace Core.MaterialChanger {
 
 		private const string ColorHolderResourcesPath = "ColorHolder";
 		private ColorHolder _colorHolder;
-		private List<IMaterialChanger> _materialChangers;
+		private List<AbstractMaterialChanger> _materialChangers;
 
 		public ColorType ColorType => colorType;
 
@@ -31,9 +31,9 @@ namespace Core.MaterialChanger {
 		}
 
 		private void SetMaterialChangers() {
-			_materialChangers = new List<IMaterialChanger>(GetComponents<MaterialChangerOfMeshRenderer>());
+			_materialChangers = new List<AbstractMaterialChanger>(GetComponents<MaterialChangerOfMeshRenderer>());
 			if (changeChildrenMaterial) {
-				var componentsInChildren = GetComponentsInChildren<IMaterialChanger>();
+				var componentsInChildren = GetComponentsInChildren<AbstractMaterialChanger>();
 				_materialChangers.AddRange(componentsInChildren);
 			}
 		}
