@@ -15,7 +15,10 @@ namespace Animations {
 		private GameObject _popup;
 
 		private void Awake() {
-			_popup = Instantiate(popupScorePrefab, transform, false);
+			if (!_popup) {
+				_popup = Instantiate(popupScorePrefab, transform, false);
+				_parent = _popup.transform.parent;
+			}
 			SetNotActive();
 		}
 
@@ -38,12 +41,12 @@ namespace Animations {
 		}
 
 		private void SetActive() {
-			_popup.transform.parent = null;
+			_popup.transform.SetParent(null);
 			_popup.SetActive(true);
 		}
 
 		private void SetNotActive() {
-			_popup.transform.parent = _parent;
+			_popup.transform.SetParent(_parent);
 			_popup.SetActive(false);
 		}
 	}
