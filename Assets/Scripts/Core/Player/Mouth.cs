@@ -5,6 +5,11 @@ using UnityEngine;
 
 namespace Core.Player {
 	public class Mouth : MonoBehaviour {
+		[Header("Increase configuration")]
+		[SerializeField] private bool hasIncreaseByCrystals;
+
+		[SerializeField] private bool hasIncreaseByFood = true;
+
 		private SnakeBody _snakeBody;
 
 		private void Awake() {
@@ -37,7 +42,23 @@ namespace Core.Player {
 		}
 
 		private void AddResourceCountToSnakeBody(ResourceComponent resourceComponent) {
-			_snakeBody.AddBody(resourceComponent.Count);
+			var resourceComponentCount = 0;
+			switch (resourceComponent.Type) {
+				case ResourceType.None:
+					throw new UnityException("Set the ResourceType to the " + resourceComponent.gameObject.name);
+				case ResourceType.Crystal:
+					resourceComponentCount = hasIncreaseByCrystals ? resourceComponent.Count : resourceComponentCount;
+					break;
+				case ResourceType.Score:
+					resourceComponentCount = hasIncreaseByFood ? resourceComponent.Count : resourceComponentCount;
+					break;
+				case ResourceType.Barrier:
+					break;
+				default:
+					throw new ArgumentOutOfRangeException();
+			}
+
+			_snakeBody.AddBody(resourceComponentCount);
 		}
 	}
 }
