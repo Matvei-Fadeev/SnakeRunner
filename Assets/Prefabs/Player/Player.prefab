@@ -59,6 +59,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6bdaf7494a008ca458bb402a12aa715b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hasIncreaseByCrystals: 0
+  hasIncreaseByFood: 1
 --- !u!114 &3106518593651994042
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -83,6 +85,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a3e0911ebbd402489b16611421429af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _materialChanger: {fileID: 8388655731119922204}
 --- !u!1 &7913788254429726441
 GameObject:
   m_ObjectHideFlags: 0
