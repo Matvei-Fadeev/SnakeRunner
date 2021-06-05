@@ -36,6 +36,8 @@ namespace Core.Player {
 				case ResourceType.Score:
 					ResourceHolder.Score += count;
 					break;
+				case ResourceType.Barrier:
+					break;
 				default:
 					throw new ArgumentOutOfRangeException();
 			}
