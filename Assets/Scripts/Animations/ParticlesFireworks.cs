@@ -23,7 +23,7 @@ namespace Animations {
 				.Append(_particleSystemTransform.transform.DOMove(currentPosition, 0f))
 				.AppendInterval(fireworksDuration)
 				.OnComplete(SetNotActive);
-
+			
 			mySequence.Play();
 		}
 

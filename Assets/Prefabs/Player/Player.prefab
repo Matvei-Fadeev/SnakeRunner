@@ -689,6 +689,7 @@ GameObject:
   - component: {fileID: 1777597913561447237}
   - component: {fileID: 2818362253247945846}
   - component: {fileID: 3991372922237626968}
+  - component: {fileID: 452061904}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -756,6 +757,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   forwardSpeed: 10
   horizontalSpeed: 10
+  hasLockInput: 0
 --- !u!114 &7796296060018621832
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -772,7 +774,7 @@ MonoBehaviour:
   tailPrefab: {fileID: 2806864770989180396, guid: 3b1b51562bdc2e9408d5105db7da9e0f, type: 3}
   partDistance: 0.1
   defaultAmountOfParts: 10
-  parts: []
+  _parts: []
 --- !u!114 &1777597913561447237
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -816,3 +818,21 @@ MonoBehaviour:
   jumpHeight: 10
   jumpDuration: 3
   jumpOffset: {x: 14, y: -10, z: 0}
+--- !u!114 &452061904
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9017565211377245972}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8964264c22b3440c8d1c008bbd919865, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  feverTime: 5
+  speedMultiplier: 3
+  feverXAxisPosition: 0
+  durationToSetFeverPosition: 1
+  hasResetCrystalsAfterFever: 1
+  maxCountOfCrystals: 30

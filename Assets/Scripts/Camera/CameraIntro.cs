@@ -4,37 +4,38 @@ using UnityEngine;
 namespace Camera {
 	public class CameraIntro : MonoBehaviour {
 		[Header("Configuration")]
-		[SerializeField] private float startDurationToMoving;
+		[SerializeField] private float durationMovingToTarget;
+		[SerializeField] private Transform target;
 
-		[SerializeField] private Vector3 positionToMove;
-		
 		private CameraFollow _cameraFollow;
-		private bool defaultFreezeMovement;
+		private bool _defaultFreezeMovement;
+		private Transform _defaultParent;
 
 		private void Awake() {
 			if (TryGetComponent(out CameraFollow cameraFollow)) {
 				_cameraFollow = cameraFollow;
-				defaultFreezeMovement = _cameraFollow.hasFreezeMovement;
-				_cameraFollow.hasFreezeMovement = true;
+				_defaultFreezeMovement = _cameraFollow.hasFreezeMovement;
 			}
+			else {
+				Debug.LogError($"Set the Camera follow to the {typeof(CameraIntro)}");
+			}
+
+			_defaultParent = transform.parent;
 		}
 
 		private void Start() {
+			MovingToTarget();
+		}
 
-			Sequence sequence = DOTween.Sequence();
-			sequence
-				.Append(transform.DOMove(positionToMove, startDurationToMoving))
-				.OnComplete(StopCameraFreezing);
-
-			sequence.Play();
-			//transform.DOMove(target, startDurationToMoving)
-
+		private void MovingToTarget() {
+			_cameraFollow.hasFreezeMovement = true;
+			transform.SetParent(target);
+			transform.DOLocalMove(_cameraFollow.OffsetFromTarget, durationMovingToTarget).OnComplete(StopCameraFreezing);
 		}
 
 		private void StopCameraFreezing() {
-			if (_cameraFollow) {
-				_cameraFollow.hasFreezeMovement = defaultFreezeMovement;
-			}
+			_cameraFollow.hasFreezeMovement = _defaultFreezeMovement;
+			transform.SetParent(_defaultParent);
 		}
 	}
 }

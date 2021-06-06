@@ -4,14 +4,13 @@ using UnityEngine;
 namespace Camera {
 	public class CameraFollow : MonoBehaviour {
 		[Tooltip("If we need sometimes to turn off camera movement")]
-		[HideInInspector]
 		public bool hasFreezeMovement;
 
 		[Header("Object to follow")]
 		[SerializeField] private string tagOfTarget = "Player";
 
 		[Header("Configuration")]
-		[SerializeField] private Vector3 _offsetFromTarget;
+		[SerializeField] private Vector3 offsetFromTarget;
 
 		[Tooltip("The axis which will be freezed")]
 		[SerializeField] private Axis freezeAxis;
@@ -20,6 +19,8 @@ namespace Camera {
 		private Vector3 _defaultPosition;
 
 		public Transform Target => _target;
+
+		public Vector3 OffsetFromTarget => offsetFromTarget;
 
 		private void Awake() {
 			if (!_target) {
@@ -45,7 +46,7 @@ namespace Camera {
 		}
 
 		private Vector3 GetCameraPosition() {
-			return _target.position + _offsetFromTarget;
+			return _target.position + offsetFromTarget;
 		}
 
 		private void FreezeCameraMovementAxis(ref Vector3 position) {
