@@ -2,7 +2,7 @@
 using UnityEngine;
 
 namespace Animations {
-	class SnakeDyingAnimation : MonoBehaviour, IAnimation {
+	public class FlyOff : MonoBehaviour, IAnimation {
 		[SerializeField] private float jumpHeight = 10f;
 		[SerializeField] private float jumpDuration = 3f;
 		[SerializeField] private Vector3 jumpOffset = new Vector3(14, -10, 0);
