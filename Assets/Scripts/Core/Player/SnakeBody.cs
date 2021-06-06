@@ -14,13 +14,15 @@ namespace Core.Player {
 		[SerializeField] private int defaultAmountOfParts = 0;
 
 		[Header("Snake body parts")]
-		[SerializeField] private List<GameObject> parts;
+		[SerializeField] private List<GameObject> _parts;
 
 		private Vector3 _invisibleSpawnPosition = new Vector3(-999, -999);
 		private GameObject _tailGameObject;
 
+		public List<GameObject> Parts => _parts;
+
 		private void Awake() {
-			parts = new List<GameObject>();
+			_parts = new List<GameObject>();
 			if (!tailPrefab) {
 				throw new UnityException("Set the tailPrefab to the SnakeBody scripts");
 			}
@@ -36,16 +38,16 @@ namespace Core.Player {
 
 		/// <param name="count">The number of body parts to appear</param>
 		public void AddBody(int count = 1) {
-			var objectToClone = parts.Count > 0 ? parts[0] : bodyPart;
+			var objectToClone = _parts.Count > 0 ? _parts[0] : bodyPart;
 			for (int i = 0; i < count; i++) {
 				var newPart = Instantiate(objectToClone, _invisibleSpawnPosition, default);
-				parts.Add(newPart);
+				_parts.Add(newPart);
 			}
 		}
 
 		/// <param name="count">The number of body parts to be removed from the snake's tail</param>
 		public void RemoveFromTail(int count = 1) {
-			if (parts.Count == 0) {
+			if (_parts.Count == 0) {
 				return;
 			}
 
@@ -57,25 +59,25 @@ namespace Core.Player {
 
 		private int GetIndexOfStartedDeleting(int count) {
 			int index = 0;
-			if (count < parts.Count) {
-				index = parts.Count - 1 - count;
+			if (count < _parts.Count) {
+				index = _parts.Count - 1 - count;
 			}
 
 			return index;
 		}
 
 		private int GetCountToDelete(int count) {
-			int countToDelete = Mathf.Min(parts.Count, count);
+			int countToDelete = Mathf.Min(_parts.Count, count);
 			return countToDelete;
 		}
 
 		private void RemoveByIndexAndCount(int index, int countToDelete) {
 			for (int i = index; i < index + countToDelete; i++) {
-				var body = parts[i];
+				var body = _parts[i];
 				Destroy(body);
 			}
 
-			parts.RemoveRange(index, countToDelete);
+			_parts.RemoveRange(index, countToDelete);
 		}
 
 		private void MoveBodyAndTail() {
@@ -91,7 +93,7 @@ namespace Core.Player {
 		}
 
 		private bool MoveBody(ref Vector3 previousPosition, ref Quaternion previousRotation) {
-			foreach (var part in parts) {
+			foreach (var part in _parts) {
 				var body = part.transform;
 				if ((body.position - previousPosition).sqrMagnitude > partDistance * partDistance) {
 					var position = SwapPosition(body.position, ref previousPosition);

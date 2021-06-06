@@ -5,6 +5,8 @@ using UnityEngine;
 
 namespace Core.Player {
 	public class Mouth : MonoBehaviour {
+		public static Action ScoreHasEaten;
+		
 		[Header("Increase configuration")]
 		[SerializeField] private bool hasIncreaseByCrystals;
 
@@ -52,6 +54,7 @@ namespace Core.Player {
 					resourceComponentCount = hasIncreaseByCrystals ? resourceComponent.Count : resourceComponentCount;
 					break;
 				case ResourceType.Score:
+					ScoreHasEaten?.Invoke();
 					resourceComponentCount = hasIncreaseByFood ? resourceComponent.Count : resourceComponentCount;
 					break;
 				case ResourceType.Barrier:
