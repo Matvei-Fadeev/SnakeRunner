@@ -10,6 +10,10 @@ namespace UI.Text {
 			ResourceHolder.ScoreChanged += ReceiveValue;
 		}
 
+		private void Start() {
+			ReceiveValue(null, ResourceHolder.Score);
+		}
+		
 		private void OnDisable() {
 			ResourceHolder.ScoreChanged -= ReceiveValue;
 		}

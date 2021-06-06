@@ -1,4 +1,4 @@
-﻿using Data;
+﻿using System;
 using Data.Resource;
 
 namespace UI.Text {
@@ -7,7 +7,12 @@ namespace UI.Text {
 	/// </summary>
 	public class CrystalTextChanger : TextChanger {
 		private void OnEnable() {
+			
 			ResourceHolder.CrystalsChanged += ReceiveValue;
+		}
+
+		private void Start() {
+			ReceiveValue(null, ResourceHolder.Crystals);
 		}
 
 		private void OnDisable() {

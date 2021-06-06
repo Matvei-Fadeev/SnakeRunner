@@ -31,7 +31,6 @@ namespace Managers.GameLogic {
 
 		private static void Restart() {
 			ResourceHolder.Reset();
-			
 			// Reload current scene
 			SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex);
 		}

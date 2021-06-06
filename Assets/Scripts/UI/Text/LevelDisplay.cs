@@ -7,7 +7,6 @@ namespace UI.Text {
 		[Header("Configuration")]
 		[SerializeField] private bool hasOnlyUpper = true;
 		[SerializeField] private bool replaceSymbolsOnSpace = true;
-		
 
 		private TextMeshProUGUI _levelText;
 		
