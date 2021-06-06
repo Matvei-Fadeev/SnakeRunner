@@ -3,10 +3,25 @@ using UnityEngine;
 
 namespace Core.Movement {
 	public class MovementController : MonoBehaviour {
-		public float forwardSpeed = 1f;
-		public float horizontalSpeed = 1f;
-
+		[Header("Configuration")] 
+		[SerializeField] private float forwardSpeed = 1f;
+		[SerializeField] private float horizontalSpeed = 1f;
+		
+		[Header("Input configuration")]
+		[SerializeField] private bool hasLockInput;
+		
 		private Rigidbody _rigidbody;
+		private float inputValueWhenLocked = 0f;
+
+		public float ForwardSpeed {
+			get => forwardSpeed;
+			set => forwardSpeed = value;
+		}
+
+		public bool HasLockInput {
+			get => hasLockInput;
+			set => hasLockInput = value;
+		}
 
 		private void Awake() {
 			_rigidbody = GetComponent<Rigidbody>();
@@ -18,7 +33,8 @@ namespace Core.Movement {
 
 		private void Move() {
 			var direction = transform.forward * forwardSpeed;
-			var rotationInput = InputHandler.Instance.GetHorizontal() * horizontalSpeed;
+			var horizontalInput = !hasLockInput ? InputHandler.Instance.GetHorizontal() : inputValueWhenLocked;
+			var rotationInput = horizontalInput * horizontalSpeed;
 			direction.x = rotationInput;
 			MoveToDirection(direction);
 		}

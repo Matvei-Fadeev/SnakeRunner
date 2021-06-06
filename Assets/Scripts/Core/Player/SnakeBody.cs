@@ -10,12 +10,11 @@ namespace Core.Player {
 
 		[Header("Configuration")]
 		[SerializeField] private float partDistance = 0f;
-
 		[SerializeField] private int defaultAmountOfParts = 0;
 
 		[Header("Snake body parts")]
 		[SerializeField] private List<GameObject> _parts;
-
+		
 		private Vector3 _invisibleSpawnPosition = new Vector3(-999, -999);
 		private GameObject _tailGameObject;
 

@@ -11,13 +11,21 @@ namespace Core.Player {
 		
 		[Header("Animations")]
 		[SerializeField] private bool enableDyingAnimation = true;
+		
+		[Header("Configuration")]
+		[SerializeField] private bool hasInvulnerability;
 
-		private Checker[] dyingCheckers;
-		private IAnimation dyingAnimation;
+		private Checker[] _dyingCheckers;
+		private IAnimation _dyingAnimation;
+
+		public bool HasInvulnerability {
+			get => hasInvulnerability;
+			set => hasInvulnerability = value;
+		}
 
 		private void Awake() {
-			dyingCheckers = GetComponentsInChildren<Checker>();
-			dyingAnimation = GetComponent<IAnimation>();
+			_dyingCheckers = GetComponentsInChildren<Checker>();
+			_dyingAnimation = GetComponent<IAnimation>();
 		}
 
 		private void OnEnable() {
@@ -29,10 +37,12 @@ namespace Core.Player {
 		}
 
 		private void PlayerDying() {
-			PlayerState?.Invoke(GameCommands.GameOver);
-			TurnOffRigidbody();
-			if (enableDyingAnimation) {
-				dyingAnimation.Show(transform.position);
+			if (!hasInvulnerability) {
+				PlayerState?.Invoke(GameCommands.GameOver);
+				TurnOffRigidbody();
+				if (enableDyingAnimation) {
+					_dyingAnimation.Show(transform.position);
+				}
 			}
 		}
 
@@ -43,13 +53,13 @@ namespace Core.Player {
 		}
 
 		private void SubscribeToCheckers() {
-			foreach (Checker checker in dyingCheckers) {
+			foreach (Checker checker in _dyingCheckers) {
 				checker.IsDying += PlayerDying;
 			}
 		}
 
 		private void UnsubscribeFromCheckers() {
-			foreach (Checker checker in dyingCheckers) {
+			foreach (Checker checker in _dyingCheckers) {
 				checker.IsDying -= PlayerDying;
 			}
 		}

@@ -31,8 +31,16 @@ namespace Data.Resource {
 		/// Set to default value the Score and Crystals
 		/// </summary>
 		public static void Reset() {
-			Score = 0;
+			ResetScore();
+			ResetCrystals();
+		}
+
+		public static void ResetCrystals() {
 			Crystals = 0;
+		}
+		
+		public static void ResetScore() {
+			Score = 0;
 		}
 	}
 }
