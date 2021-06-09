@@ -1,7 +1,7 @@
 ﻿using DG.Tweening;
 using UnityEngine;
 
-namespace Camera {
+namespace CameraUtility {
 	public class CameraIntro : MonoBehaviour {
 		[Header("Configuration")]
 		[SerializeField] private float durationMovingToTarget;
