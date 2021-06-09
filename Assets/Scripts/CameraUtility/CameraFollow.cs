@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-namespace Camera {
+namespace CameraUtility {
 	public class CameraFollow : MonoBehaviour {
 		[Tooltip("If we need sometimes to turn off camera movement")]
 		public bool hasFreezeMovement;
